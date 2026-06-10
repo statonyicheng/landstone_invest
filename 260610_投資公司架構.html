@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>嵐石集團 三方融資架構 ─ 投資公司 × 嵐石事業 × 嵐可共創</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#000e2f;--navy-80:#1a2647;--navy-60:#4d566e;--navy-10:#e6e8ed;
+    --gold:#f4b702;--gold-soft:#fef4d4;--paper:#fafaf7;--paper-2:#f3f3ee;
+    --line:#d8d8d2;--red:#a93232;--green:#2d6a4f;
+    --serif-tc:'Noto Serif TC',serif;--serif-en:'Cormorant Garamond',serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--serif-tc);color:var(--navy);background:var(--paper);line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased}
+  .container{max-width:1240px;margin:0 auto;padding:0 48px}
+  .num{font-family:var(--serif-en);font-feature-settings:"lnum"}
+  .en{font-family:var(--serif-en);letter-spacing:.02em}
+
+  /* HERO */
+  .hero{background:var(--navy);color:#fff;padding:96px 0 80px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .hero::after{content:"III";position:absolute;bottom:-40px;right:60px;font-family:var(--serif-en);font-size:240px;font-weight:300;color:rgba(244,183,2,.05);letter-spacing:.1em;pointer-events:none}
+  .hero-mark{font-family:var(--serif-en);font-size:13px;letter-spacing:.4em;color:var(--gold);margin-bottom:28px;text-transform:uppercase}
+  .hero h1{font-family:var(--serif-tc);font-weight:500;font-size:48px;line-height:1.25;letter-spacing:.04em;margin-bottom:22px}
+  .hero h1 .accent{color:var(--gold)}
+  .hero-sub{font-family:var(--serif-en);font-style:italic;font-size:20px;font-weight:300;color:rgba(255,255,255,.7);margin-bottom:44px;max-width:820px;letter-spacing:.01em}
+  .hero-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;padding-top:40px;border-top:1px solid rgba(244,183,2,.2);max-width:980px}
+  .hm-item .label{font-family:var(--serif-en);font-size:11px;letter-spacing:.3em;color:var(--gold);margin-bottom:10px;text-transform:uppercase}
+  .hm-item .value{font-size:15px;font-weight:400;color:rgba(255,255,255,.92);letter-spacing:.04em;line-height:1.6}
+
+  /* SECTIONS */
+  section{padding:88px 0;position:relative}
+  .section-head{display:flex;align-items:baseline;gap:32px;margin-bottom:48px;border-bottom:1px solid var(--line);padding-bottom:24px}
+  .section-num{font-family:var(--serif-en);font-size:13px;letter-spacing:.3em;color:var(--gold);font-weight:500}
+  .section-title{font-family:var(--serif-tc);font-size:32px;font-weight:500;letter-spacing:.05em;color:var(--navy)}
+  .section-en{font-family:var(--serif-en);font-style:italic;font-size:18px;color:var(--navy-60);margin-left:auto;font-weight:400}
+  .section-intro{font-size:15px;color:var(--navy-80);max-width:880px;margin-bottom:36px;line-height:1.85}
+
+  /* DIAGRAM WRAPPER */
+  .diagram-wrap{background:#fff;padding:56px 40px;border:1px solid var(--line);position:relative}
+  .diagram-wrap.light-bg{background:var(--paper-2)}
+  .flow-svg{width:100%;height:auto;display:block}
+  .flow-legend{display:flex;justify-content:center;gap:48px;margin-top:36px;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap}
+  .legend-item{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--navy-80)}
+  .legend-line{width:36px;height:2px}
+  .legend-line.solid{background:var(--navy)}
+  .legend-line.gold{background:var(--gold)}
+  .legend-line.dashed{background:repeating-linear-gradient(90deg,var(--navy-60) 0 6px,transparent 6px 10px);height:2px}
+
+  /* TWO COL EXPLAIN */
+  .explain-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+  .explain-grid.three{grid-template-columns:1fr 1fr 1fr}
+  .explain-card{background:#fff;border-top:3px solid var(--navy);padding:28px 32px}
+  .explain-card.gold{border-top-color:var(--gold)}
+  .explain-card h4{font-size:17px;font-weight:600;margin-bottom:6px;letter-spacing:.04em}
+  .explain-card .en{font-style:italic;font-size:13px;color:var(--navy-60);margin-bottom:14px;display:block}
+  .explain-card p{font-size:13.5px;color:var(--navy-80);line-height:1.75}
+  .explain-card ul{list-style:none;margin-top:12px}
+  .explain-card li{padding:10px 0;border-bottom:1px dashed var(--line);font-size:13.5px;display:flex;gap:12px;align-items:baseline;color:var(--navy-80)}
+  .explain-card li:last-child{border-bottom:none}
+  .explain-card li::before{content:"";flex-shrink:0;width:5px;height:5px;background:var(--gold);transform:translateY(2px)}
+  .explain-card li strong{color:var(--navy);font-weight:600}
+
+  /* JOURNAL ENTRY */
+  .journal{background:var(--navy);color:#fff;padding:40px;margin-top:32px}
+  .journal-label{font-family:var(--serif-en);font-size:11px;letter-spacing:.3em;color:var(--gold);margin-bottom:18px;text-transform:uppercase}
+  .journal-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .je-title{font-size:15px;font-weight:500;color:var(--gold);margin-bottom:14px;letter-spacing:.05em}
+  .je-line{display:grid;grid-template-columns:1fr 110px 110px;gap:12px;padding:8px 0;font-size:13.5px;border-bottom:1px solid rgba(255,255,255,.1);font-family:var(--serif-en)}
+  .je-line.indent{padding-left:24px}
+  .je-line .dr,.je-line .cr{text-align:right}
+  .je-line .narrative{color:rgba(255,255,255,.7);font-style:italic;font-size:12px;grid-column:1/-1;padding-top:6px}
+
+  /* LAW CARD */
+  .law-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}
+  .law-card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);padding:28px 32px}
+  .law-card .law-ref{font-family:var(--serif-en);font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+  .law-card h4{font-size:17px;font-weight:600;margin-bottom:12px;letter-spacing:.04em}
+  .law-card p{font-size:13.5px;color:var(--navy-80);line-height:1.8}
+  .law-card .quote{background:var(--paper-2);padding:16px 20px;margin-top:14px;font-size:13px;color:var(--navy-80);line-height:1.8;border-left:2px solid var(--navy-60)}
+  .law-card strong{color:var(--navy);font-weight:600}
+  .hl{color:var(--red);font-weight:600}
+  .hl-gold{color:var(--gold);font-weight:600}
+
+  /* DISCLAIMER */
+  .disclaimer{background:var(--paper-2);padding:28px 36px;border-left:3px solid var(--gold);margin-top:36px;font-size:13px;line-height:1.85;color:var(--navy-80)}
+  .disclaimer strong{color:var(--navy);font-weight:600;display:block;margin-bottom:8px;letter-spacing:.1em}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:rgba(255,255,255,.7);padding:56px 0 36px;margin-top:56px}
+  .footer-line{padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center}
+  .footer-logo{font-family:var(--serif-en);font-size:24px;letter-spacing:.3em;color:var(--gold)}
+  .footer-text{font-size:13px;line-height:1.7}
+  .footer-bot{padding-top:24px;display:flex;justify-content:space-between;font-family:var(--serif-en);font-size:11.5px;letter-spacing:.15em;color:rgba(255,255,255,.4)}
+
+  @media (max-width:900px){
+    .container{padding:0 24px}
+    .hero h1{font-size:30px}
+    .hero-meta{grid-template-columns:1fr;gap:24px}
+    .explain-grid,.explain-grid.three,.journal-grid,.law-grid{grid-template-columns:1fr}
+    section{padding:56px 0}
+    .section-en{display:none}
+    .diagram-wrap{padding:32px 20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────── HERO ───────── -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-mark">STATON · 集團融資架構詳述</div>
+    <h1>投資公司 × 嵐石事業 × 嵐可共創<br><span class="accent">圖解三方融資架構：銀行借貸 · 同業往來 · 資金調度</span></h1>
+    <div class="hero-sub">A Visual Walkthrough of the Group Financing Chain — Bank Facility, Inter-Company Lending, and Capital Routing</div>
+    <div class="hero-meta">
+      <div class="hm-item">
+        <div class="label">Operating Borrower</div>
+        <div class="value">嵐可共創商務有限公司<br>(統編 82788462)</div>
+      </div>
+      <div class="hm-item">
+        <div class="label">Core Mechanism</div>
+        <div class="value">嵐可向銀行融資 NT$ 500 萬<br>經同業往來調度至投資公司、嵐石</div>
+      </div>
+      <div class="hm-item">
+        <div class="label">Compliance Anchor</div>
+        <div class="value">公司法 §15 業務往來／短期融通<br>所得稅法 §24-3 設算利息</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ───────── 01 ENTITY MAP ───────── -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <span class="section-title">三主體定位</span>
+      <span class="section-en">Three-Entity Map</span>
+    </div>
+
+    <p class="section-intro">
+      集團由三家獨立法人組成。<strong>投資公司（A）</strong>為資金樞紐與持股載體；<strong>嵐石事業（B）</strong>為品牌與商品事業主體（建材、礦石、設計、國際貿易）；<strong>嵐可共創（C）</strong>為營運與融資主體，具備向銀行融資借貸之信用條件，並透過「同業往來」於三主體間調度資金。三者同址登記、實質關係企業，資金調度須符合公司法第 15 條之要件。
+    </p>
+
+    <div class="diagram-wrap">
+      <svg class="flow-svg" viewBox="0 0 1100 560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="m-navy-0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000e2f"/></marker>
+          <marker id="m-gold-0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f4b702"/></marker>
+        </defs>
+
+        <text x="40" y="70" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#4d566e" letter-spacing="2">SHAREHOLDER</text>
+        <text x="40" y="305" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#4d566e" letter-spacing="2">HOLDING</text>
+        <text x="40" y="475" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#4d566e" letter-spacing="2">OPERATING</text>
+
+        <line x1="180" y1="40" x2="1080" y2="40" stroke="#d8d8d2" stroke-width="1" stroke-dasharray="2,3"/>
+        <line x1="180" y1="280" x2="1080" y2="280" stroke="#d8d8d2" stroke-width="1" stroke-dasharray="2,3"/>
+        <line x1="180" y1="450" x2="1080" y2="450" stroke="#d8d8d2" stroke-width="1" stroke-dasharray="2,3"/>
+
+        <!-- TOP: Natural-person shareholders -->
+        <rect x="350" y="55" width="400" height="80" fill="#fef4d4" stroke="#f4b702" stroke-width="1.5"/>
+        <text x="550" y="83" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#4d566e" letter-spacing="2">NATURAL-PERSON SHAREHOLDERS</text>
+        <text x="550" y="110" text-anchor="middle" font-family="Noto Serif TC" font-size="17" font-weight="600" fill="#000e2f">自然人股東</text>
+        <text x="550" y="128" text-anchor="middle" font-family="Noto Serif TC" font-size="13" fill="#4d566e">賴韻如 · 賴柏蒝 · 賴采靖</text>
+
+        <!-- A Investment (hub, centred) -->
+        <rect x="410" y="180" width="280" height="100" fill="#000e2f"/>
+        <text x="550" y="210" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#f4b702" letter-spacing="2">A · INVESTMENT</text>
+        <text x="550" y="237" text-anchor="middle" font-family="Noto Serif TC" font-size="17" font-weight="600" fill="#fff">投資股份有限公司</text>
+        <text x="550" y="261" text-anchor="middle" font-family="Noto Serif TC" font-size="12" fill="rgba(255,255,255,.78)">資金樞紐 · 持股載體</text>
+
+        <!-- B Landstone -->
+        <rect x="180" y="335" width="320" height="105" fill="#fff" stroke="#000e2f" stroke-width="1.5"/>
+        <text x="340" y="365" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#4d566e" letter-spacing="2">B · LAND STONE</text>
+        <text x="340" y="392" text-anchor="middle" font-family="Noto Serif TC" font-size="17" font-weight="600" fill="#000e2f">嵐石事業有限公司</text>
+        <text x="340" y="414" text-anchor="middle" font-family="Noto Serif TC" font-size="12" fill="#4d566e">建材 · 礦石 · 設計 · 國貿</text>
+        <text x="340" y="432" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#4d566e">負責人 賴采靖</text>
+
+        <!-- C Landco -->
+        <rect x="600" y="335" width="320" height="105" fill="#fff" stroke="#f4b702" stroke-width="2"/>
+        <text x="760" y="365" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#f4b702" letter-spacing="2">C · LAND CO</text>
+        <text x="760" y="392" text-anchor="middle" font-family="Noto Serif TC" font-size="17" font-weight="600" fill="#000e2f">嵐可共創商務有限公司</text>
+        <text x="760" y="414" text-anchor="middle" font-family="Noto Serif TC" font-size="12" fill="#4d566e">商務中心 · 融資借款人</text>
+        <text x="760" y="432" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#4d566e">負責人 賴柏蒝</text>
+
+        <!-- ownership arrows -->
+        <line x1="550" y1="135" x2="550" y2="176" stroke="#f4b702" stroke-width="2.5" marker-end="url(#m-gold-0)"/>
+        <text x="565" y="162" font-family="Noto Serif TC" font-size="11.5" fill="#000e2f" font-weight="600">持股 100%</text>
+
+        <line x1="490" y1="280" x2="370" y2="331" stroke="#000e2f" stroke-width="2" marker-end="url(#m-navy-0)"/>
+        <text x="395" y="315" text-anchor="middle" font-family="Noto Serif TC" font-size="11.5" fill="#4d566e">持股</text>
+
+        <line x1="610" y1="280" x2="730" y2="331" stroke="#000e2f" stroke-width="2" marker-end="url(#m-navy-0)"/>
+        <text x="705" y="315" text-anchor="middle" font-family="Noto Serif TC" font-size="11.5" fill="#4d566e">持股</text>
+
+        <!-- captions -->
+        <text x="550" y="500" text-anchor="middle" font-family="Noto Serif TC" font-size="12.5" fill="#4d566e">自然人股東持有 A；A 再持有 B、C — 盈餘以股利回流 A，適用 §42 免計入</text>
+        <text x="550" y="525" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11.5" fill="#4d566e" letter-spacing="1.2">Individuals hold A · A holds B &amp; C · dividends flow up to A under §42</text>
+      </svg>
+    </div>
+
+    <div class="explain-grid three">
+      <div class="explain-card">
+        <h4>A ─ 投資公司</h4>
+        <span class="en">Capital Hub · Holding</span>
+        <p>居於三方中樞。受領 C 經同業往來移轉之資金後，再以「短期融通」名義轉貸予 B；同時可持有 B、C 股權，未來受領盈餘分配適用<strong>所得稅法 §42 股利免計入</strong>。</p>
+      </div>
+      <div class="explain-card">
+        <h4>B ─ 嵐石事業</h4>
+        <span class="en">Brand &amp; Product</span>
+        <p>承載建材批發、礦石、室內景觀設計與國際貿易等核心營業項目。為資金「最終使用端」，向 A 借入週轉金用於存貨採購、營運週轉。</p>
+      </div>
+      <div class="explain-card gold">
+        <h4>C ─ 嵐可共創</h4>
+        <span class="en">Operating · Borrower</span>
+        <p>以營運主體身分向銀行取得 NT$ 500 萬融資（信用條件較佳）。借入後透過<strong style="color:var(--gold)">同業往來</strong>將資金回流予 A，由 A 統籌調度。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 02 FINANCING CHAIN ───────── -->
+<section style="background:var(--paper-2)">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <span class="section-title">融資調度鏈</span>
+      <span class="section-en">Financing &amp; Routing Chain</span>
+    </div>
+
+    <p class="section-intro">
+      以 NT$ 500 萬銀行融資為例。資金路徑為：<strong>銀行 → 嵐可（C）→ 同業往來 → 投資公司（A）→ 短期融通 → 嵐石（B）</strong>。每一段轉貸都必須具備公司法第 15 條之「業務往來」或「短期融通」要件，並依所得稅法第 24-3 條<strong class="hl">設算合理利息</strong>，避免被國稅局調整補稅。
+    </p>
+
+    <div class="diagram-wrap">
+      <svg class="flow-svg" viewBox="0 0 1100 560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="m-navy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000e2f"/></marker>
+          <marker id="m-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f4b702"/></marker>
+        </defs>
+
+        <!-- swimlane labels -->
+        <text x="40" y="45" font-family="Cormorant Garamond" font-style="italic" font-size="13" fill="#4d566e" letter-spacing="2">LENDER</text>
+        <text x="40" y="200" font-family="Cormorant Garamond" font-style="italic" font-size="13" fill="#4d566e" letter-spacing="2">OPERATING</text>
+        <text x="40" y="350" font-family="Cormorant Garamond" font-style="italic" font-size="13" fill="#4d566e" letter-spacing="2">HUB</text>
+        <text x="40" y="500" font-family="Cormorant Garamond" font-style="italic" font-size="13" fill="#4d566e" letter-spacing="2">END USE</text>
+
+        <line x1="160" y1="40" x2="1080" y2="40" stroke="#d8d8d2" stroke-width="1" stroke-dasharray="2,3"/>
+        <line x1="160" y1="195" x2="1080" y2="195" stroke="#d8d8d2" stroke-width="1" stroke-dasharray="2,3"/>
+        <line x1="160" y1="345" x2="1080" y2="345" stroke="#d8d8d2" stroke-width="1" stroke-dasharray="2,3"/>
+        <line x1="160" y1="495" x2="1080" y2="495" stroke="#d8d8d2" stroke-width="1" stroke-dasharray="2,3"/>
+
+        <!-- Bank -->
+        <rect x="430" y="55" width="240" height="80" fill="#fff" stroke="#000e2f" stroke-width="1.2"/>
+        <text x="550" y="90" text-anchor="middle" font-family="Noto Serif TC" font-size="17" font-weight="600" fill="#000e2f">銀行</text>
+        <text x="550" y="113" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#4d566e">Bank · Credit Facility</text>
+
+        <!-- C operating -->
+        <rect x="430" y="215" width="240" height="100" fill="#fff" stroke="#f4b702" stroke-width="2"/>
+        <text x="550" y="250" text-anchor="middle" font-family="Noto Serif TC" font-size="16" font-weight="600" fill="#000e2f">嵐可共創（C）</text>
+        <text x="550" y="271" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#4d566e">Operating · Borrower</text>
+        <text x="550" y="297" text-anchor="middle" font-family="Cormorant Garamond" font-size="12" fill="#f4b702" letter-spacing="1.5">借款人 · 帳列短期借款</text>
+
+        <!-- A hub -->
+        <rect x="430" y="365" width="240" height="100" fill="#000e2f"/>
+        <text x="550" y="400" text-anchor="middle" font-family="Noto Serif TC" font-size="16" font-weight="600" fill="#f4b702">投資公司（A）</text>
+        <text x="550" y="421" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#fff" opacity="0.7">Capital Hub</text>
+        <text x="550" y="447" text-anchor="middle" font-family="Cormorant Garamond" font-size="12" fill="#f4b702" letter-spacing="1.5">同業往來 → 再轉貸</text>
+
+        <!-- B end use -->
+        <rect x="430" y="505" width="240" height="50" fill="#fef4d4" stroke="#f4b702" stroke-width="1"/>
+        <text x="550" y="535" text-anchor="middle" font-family="Noto Serif TC" font-size="14" font-weight="500" fill="#000e2f">嵐石事業（B）· 營運週轉</text>
+
+        <!-- Arrow 1: Bank -> C -->
+        <line x1="550" y1="135" x2="550" y2="210" stroke="#000e2f" stroke-width="2" marker-end="url(#m-navy)"/>
+        <text x="565" y="168" font-family="Noto Serif TC" font-size="12" fill="#000e2f" font-weight="600">① 銀行融資 NT$ 500 萬</text>
+        <text x="565" y="185" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#4d566e">Bank Loan to Borrower</text>
+
+        <!-- Arrow 2: C -> A (同業往來) -->
+        <line x1="550" y1="315" x2="550" y2="360" stroke="#f4b702" stroke-width="2.5" marker-end="url(#m-gold)"/>
+        <text x="565" y="335" font-family="Noto Serif TC" font-size="12" fill="#000e2f" font-weight="600">② 同業往來（回流 A）</text>
+
+        <!-- Arrow 3: A -> B (短期融通) -->
+        <line x1="550" y1="465" x2="550" y2="500" stroke="#000e2f" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#m-navy)"/>
+        <text x="565" y="486" font-family="Noto Serif TC" font-size="12" fill="#000e2f" font-weight="600">③ 短期融通（A 轉貸 B）</text>
+
+        <!-- side annotation: interest return loop -->
+        <path d="M 670 540 Q 880 460 880 415 Q 880 280 700 265" stroke="#4d566e" stroke-width="1.5" fill="none" stroke-dasharray="3,3" marker-end="url(#m-navy)"/>
+        <text x="895" y="400" font-family="Noto Serif TC" font-size="11.5" fill="#4d566e">④ 利息回流</text>
+        <text x="895" y="417" font-family="Cormorant Garamond" font-style="italic" font-size="10.5" fill="#4d566e">Interest accrual</text>
+        <text x="895" y="434" font-family="Noto Serif TC" font-size="11" fill="#a93232">§24-3 設算</text>
+
+        <!-- left annotation 40% cap -->
+        <text x="290" y="395" text-anchor="end" font-family="Noto Serif TC" font-size="11.5" fill="#4d566e">融資金額 ≤</text>
+        <text x="290" y="412" text-anchor="end" font-family="Noto Serif TC" font-size="11.5" fill="#a93232" font-weight="600">貸與企業淨值 40%</text>
+        <text x="290" y="429" text-anchor="end" font-family="Cormorant Garamond" font-style="italic" font-size="10.5" fill="#4d566e">§15 short-term cap</text>
+      </svg>
+
+      <div class="flow-legend">
+        <div class="legend-item"><div class="legend-line solid"></div><span>銀行融資與轉貸 Loan / Routing</span></div>
+        <div class="legend-item"><div class="legend-line gold"></div><span>同業往來樞紐 Inter-Co Pivot</span></div>
+        <div class="legend-item"><div class="legend-line dashed"></div><span>利息回流 Interest Flow</span></div>
+      </div>
+    </div>
+
+    <!-- Journal entries -->
+    <div class="journal">
+      <div class="journal-label">Bookkeeping Reference · 會計分錄參考（C 借入 NT$ 500 萬 → 經 A 轉貸 B）</div>
+      <div class="journal-grid">
+        <div class="je">
+          <div class="je-title">嵐可共創 C · 借入並回流 A</div>
+          <div class="je-line"><span>會計科目</span><span class="dr">借方 Dr</span><span class="cr">貸方 Cr</span></div>
+          <div class="je-line"><span>銀行存款（撥款）</span><span class="dr">5,000,000</span><span class="cr">—</span></div>
+          <div class="je-line indent"><span>短期借款（銀行）</span><span class="dr">—</span><span class="cr">5,000,000</span></div>
+          <div class="je-line"><span>同業往來－投資公司 A</span><span class="dr">5,000,000</span><span class="cr">—</span></div>
+          <div class="je-line indent"><span>銀行存款</span><span class="dr">—</span><span class="cr">5,000,000</span></div>
+          <div class="je-line"><span class="narrative">＊ 對 A 之債權列「同業往來」或「應收關係人款」，須訂立借據並設算利息收入</span></div>
+        </div>
+        <div class="je">
+          <div class="je-title">投資公司 A · 收款並轉貸 B</div>
+          <div class="je-line"><span>會計科目</span><span class="dr">借方 Dr</span><span class="cr">貸方 Cr</span></div>
+          <div class="je-line"><span>銀行存款</span><span class="dr">5,000,000</span><span class="cr">—</span></div>
+          <div class="je-line indent"><span>同業往來－嵐可 C</span><span class="dr">—</span><span class="cr">5,000,000</span></div>
+          <div class="je-line"><span>短期墊款－嵐石 B</span><span class="dr">5,000,000</span><span class="cr">—</span></div>
+          <div class="je-line indent"><span>銀行存款</span><span class="dr">—</span><span class="cr">5,000,000</span></div>
+          <div class="je-line"><span class="narrative">＊ 對 B 之轉貸同須訂約並按 §24-3 基準利率設算利息收入課稅</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 03 LEGAL BASIS ───────── -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <span class="section-title">法律與稅務基礎</span>
+      <span class="section-en">Legal &amp; Tax Foundation</span>
+    </div>
+
+    <p class="section-intro">
+      公司資金原則上不得貸與股東或任何他人，僅在「業務往來」或「短期融通之必要」兩款例外下始得為之，且後者另有淨值 40% 之上限。即便合法貸與，若未收取利息或利率偏低，仍須依所得稅法設算利息收入課稅。以下為兩項核心法源。
+    </p>
+
+    <div class="law-grid">
+      <div class="law-card">
+        <div class="law-ref">公司法 §15 · Company Act</div>
+        <h4>資金貸與之兩款例外與淨值上限</h4>
+        <p>公司之資金，除下列情形外，不得貸與股東或任何他人：<strong>（一）公司間或與行號間有業務往來者；（二）公司間或與行號間有短期融通資金之必要者。</strong></p>
+        <div class="quote">
+          短期融通之<strong class="hl">融資金額不得超過貸與企業淨值的百分之四十</strong>。公司負責人違反規定時，應與借用人連帶負返還責任；公司受有損害者，並負損害賠償責任。
+        </div>
+        <p style="margin-top:14px"><strong>實務要點：</strong>本架構中 A→B、A→C 之轉貸應優先定性為「短期融通」，故須注意 A（貸與企業）之淨值，融出總額不得逾其淨值 40%；並建議逐筆訂立借款契約留存。</p>
+      </div>
+
+      <div class="law-card">
+        <div class="law-ref">所得稅法 §24-3 · Income Tax Act</div>
+        <h4>無償或低利貸與之設算利息</h4>
+        <p>公司將資金貸與股東或任何他人<strong>未收取利息，或約定利息偏低</strong>者（預支職工薪資除外），應按資金貸與期間所屬年度 1 月 1 日<strong>臺灣銀行基準利率</strong>計算公司利息收入課稅。</p>
+        <div class="quote">
+          財政部實例：某公司帳列應收股東款 NT$ 4,300 萬未收息，遭依當年度基準利率（111 年 <span class="num">2.366%</span>、112 年 <span class="num">2.867%</span>）按加權平均借款金額<strong class="hl">設算利息收入並補稅</strong>。
+        </div>
+        <p style="margin-top:14px"><strong>實務要點：</strong>三主體間每一筆同業往來與轉貸，均應約定<strong class="hl-gold">不低於基準利率</strong>之利息並實際收取入帳，於營所稅結算申報時列報利息收入，以免遭設算補稅。</p>
+      </div>
+    </div>
+
+    <div class="explain-grid" style="margin-top:24px">
+      <div class="explain-card gold">
+        <h4>先護「業務往來」，不行再走「短期融通」</h4>
+        <span class="en">Characterisation Order</span>
+        <p>同一筆資金要沒被 40% 上限卡住，關鍵在能不能換上「業務往來」這張皮。只要 B、C 之間本來就有真的生意（B 向 C 租用空間、C 為 B 提供行政或人力支援），資金就能走<strong>業務往來（§15 第一款）</strong>，不受淨值 40% 限制。拿不出真實交易的，才退回去用<strong>短期融通（第二款）</strong>，但那就要同時吞下 40% 上限和設算利息兩道緊篍哒。</p>
+      </div>
+      <div class="explain-card">
+        <h4>沒有文件，上面這些都是空話</h4>
+        <span class="en">No Paper, No Defence</span>
+        <p style="margin-bottom:12px">國稅局和銀行不看你怎麼說，只看你拿得出什麼。四件文件缺一不可：</p>
+        <ul>
+          <li><strong>借款契約：</strong>逐筆載明金額、期間、利率、用途。</li>
+          <li><strong>利息收付：</strong>利息真的收、開收據，銀行金流勾得起來。</li>
+          <li><strong>淨值試算：</strong>每次融出前先算貸與方淨值，守住 40% 線。</li>
+          <li><strong>董事會／股東決議：</strong>關係人借貸留下決議紀錄。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>幾件要先講清楚的事</strong>
+      （1）本圖為架構說明，非個案稅務或法律意見；實際執行前應就 A 之最新淨值、三主體真實交易事證與資金用途逐筆覆核。<br>
+      （2）公司法 §15 之「短期融通」40% 上限以「貸與企業」淨值為計算基礎，多段轉貸時每一貸與方均須個別控管。<br>
+      （3）所得稅法 §24-3 設算利息採各年度臺灣銀行基準利率，利率逐年公告，應於申報期前確認當年度適用值。<br>
+      （4）關係人交易若被認定缺乏商業實質，除設算利息補稅外，尚可能涉及移轉訂價與不合常規營業之調整風險。
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 04 LANDCO CASHFLOW & ACCOUNTING ───────── -->
+<section style="background:var(--paper-2)">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <span class="section-title">嵐可金流與帳務體系</span>
+      <span class="section-en">LandCo Cash-Flow &amp; Accounting Backbone</span>
+    </div>
+
+    <p class="section-intro">
+      整個架構的承重點在 <strong>C（嵐可共創）</strong>。因為對外借款人是 C，銀行的徵信、覆審、續約全都看 C 的帳。故首要任務是<strong class="hl">先把嵐可的金流與帳務體系做到「可被銀行查閱、且查閱結果支持續貸」的水準</strong>，再談集團內調度。帳務一旦失真，不只影響續貸，更會讓公司法第 15 條的資金往來（第一款業務往來、第二款短期融通）失去「實質」基礎，連帶拖垮 A、B。
+    </p>
+
+    <div class="diagram-wrap">
+      <svg class="flow-svg" viewBox="0 0 1100 470" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="m-navy-4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000e2f"/></marker>
+          <marker id="m-gold-4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f4b702"/></marker>
+        </defs>
+
+        <!-- swimlanes -->
+        <text x="40" y="40" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#4d566e" letter-spacing="2">SOURCE</text>
+        <text x="40" y="175" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#4d566e" letter-spacing="2">LEDGER</text>
+        <text x="40" y="330" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#4d566e" letter-spacing="2">OUTPUT</text>
+
+        <line x1="150" y1="35" x2="1080" y2="35" stroke="#d8d8d2" stroke-width="1" stroke-dasharray="2,3"/>
+        <line x1="150" y1="170" x2="1080" y2="170" stroke="#d8d8d2" stroke-width="1" stroke-dasharray="2,3"/>
+        <line x1="150" y1="325" x2="1080" y2="325" stroke="#d8d8d2" stroke-width="1" stroke-dasharray="2,3"/>
+
+        <!-- source -->
+        <rect x="180" y="55" width="200" height="70" fill="#fff" stroke="#000e2f" stroke-width="1.2"/>
+        <text x="280" y="85" text-anchor="middle" font-family="Noto Serif TC" font-size="14" font-weight="600" fill="#000e2f">營業收支</text>
+        <text x="280" y="107" text-anchor="middle" font-family="Noto Serif TC" font-size="11.5" fill="#4d566e">發票 · 收款 · 付款</text>
+
+        <rect x="450" y="55" width="200" height="70" fill="#fff" stroke="#000e2f" stroke-width="1.2"/>
+        <text x="550" y="85" text-anchor="middle" font-family="Noto Serif TC" font-size="14" font-weight="600" fill="#000e2f">銀行借款撥款</text>
+        <text x="550" y="107" text-anchor="middle" font-family="Noto Serif TC" font-size="11.5" fill="#4d566e">NT$ 500 萬</text>
+
+        <rect x="720" y="55" width="200" height="70" fill="#fff" stroke="#f4b702" stroke-width="2"/>
+        <text x="820" y="85" text-anchor="middle" font-family="Noto Serif TC" font-size="14" font-weight="600" fill="#000e2f">關係人調度</text>
+        <text x="820" y="107" text-anchor="middle" font-family="Noto Serif TC" font-size="11.5" fill="#4d566e">同業往來 A／B</text>
+
+        <!-- ledger core -->
+        <rect x="300" y="195" width="500" height="100" fill="#000e2f"/>
+        <text x="550" y="230" text-anchor="middle" font-family="Noto Serif TC" font-size="16" font-weight="600" fill="#f4b702">嵐可 C · 會計總帳</text>
+        <text x="550" y="254" text-anchor="middle" font-family="Noto Serif TC" font-size="12" fill="rgba(255,255,255,.8)">專戶分離 · 用途可勾稽 · 關係人科目獨立</text>
+        <text x="550" y="278" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11.5" fill="#f4b702">Single Source of Truth · Auditable Ledger</text>
+
+        <!-- outputs -->
+        <rect x="180" y="345" width="190" height="70" fill="#fef4d4" stroke="#f4b702" stroke-width="1"/>
+        <text x="275" y="375" text-anchor="middle" font-family="Noto Serif TC" font-size="13.5" font-weight="600" fill="#000e2f">暫結／管理報表</text>
+        <text x="275" y="396" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#4d566e">Monthly Flash</text>
+
+        <rect x="455" y="345" width="190" height="70" fill="#fef4d4" stroke="#f4b702" stroke-width="1"/>
+        <text x="550" y="375" text-anchor="middle" font-family="Noto Serif TC" font-size="13.5" font-weight="600" fill="#000e2f">401 營業稅報表</text>
+        <text x="550" y="396" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#4d566e">VAT (Bi-monthly)</text>
+
+        <rect x="730" y="345" width="190" height="70" fill="#fef4d4" stroke="#f4b702" stroke-width="1"/>
+        <text x="825" y="375" text-anchor="middle" font-family="Noto Serif TC" font-size="13.5" font-weight="600" fill="#000e2f">營所稅結算申報</text>
+        <text x="825" y="396" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#4d566e">Annual CIT</text>
+
+        <!-- arrows into ledger -->
+        <line x1="280" y1="125" x2="400" y2="192" stroke="#000e2f" stroke-width="1.8" marker-end="url(#m-navy-4)"/>
+        <line x1="550" y1="125" x2="550" y2="192" stroke="#000e2f" stroke-width="1.8" marker-end="url(#m-navy-4)"/>
+        <line x1="820" y1="125" x2="700" y2="192" stroke="#f4b702" stroke-width="2.2" marker-end="url(#m-gold-4)"/>
+
+        <!-- arrows out -->
+        <line x1="420" y1="295" x2="300" y2="342" stroke="#000e2f" stroke-width="1.8" marker-end="url(#m-navy-4)"/>
+        <line x1="550" y1="295" x2="550" y2="342" stroke="#000e2f" stroke-width="1.8" marker-end="url(#m-navy-4)"/>
+        <line x1="680" y1="295" x2="800" y2="342" stroke="#000e2f" stroke-width="1.8" marker-end="url(#m-navy-4)"/>
+
+        <text x="550" y="445" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11.5" fill="#4d566e" letter-spacing="1.5">One ledger, three bank-facing outputs — consistency across all three is what protects the credit line</text>
+      </svg>
+    </div>
+
+    <div class="explain-grid three">
+      <div class="explain-card">
+        <h4>暫結（管理）報表</h4>
+        <span class="en">Monthly Flash Report</span>
+        <p>每月結帳產出資產負債表與損益表暫結版。銀行續審時最看重「最近期未稅前財務狀況」，暫結報表與 401、年報這三份的<strong>數字要對得起來</strong>，差異要能說明。</p>
+      </div>
+      <div class="explain-card">
+        <h4>401 營業稅報表</h4>
+        <span class="en">VAT Return · 雙月制</span>
+        <p>每兩個月一期、次期 15 日前申報。銷項／進項金額是銀行驗證「實際營業量能」最直接的客觀數據；空有合約、401 卻沒量，銀行會質疑營收真實性。</p>
+      </div>
+      <div class="explain-card gold">
+        <h4>營所稅結算申報書</h4>
+        <span class="en">Annual CIT Return</span>
+        <p>年度淨利、淨值、關係人交易揭露都在此。<strong style="color:var(--gold)">淨值是 §15 短期融通 40% 上限的計算基礎</strong>，也是銀行核給額度的關鍵；申報數字直接決定來年可調度的天花板。</p>
+      </div>
+    </div>
+
+    <div class="journal" style="background:#fff;color:var(--navy);border:1px solid var(--line)">
+      <div class="journal-label" style="color:var(--navy-60)">嵐可帳務體系 · 落地檢核清單　Implementation Checklist</div>
+      <div class="explain-grid" style="margin-top:0">
+        <div class="explain-card" style="border-top-color:var(--navy)">
+          <ul>
+            <li><strong>銀行專戶分離：</strong>借款撥入專戶，營運收支與調度資金各走獨立戶頭，金流路徑可逐筆勾稽。</li>
+            <li><strong>關係人科目獨立：</strong>「同業往來－A」「短期墊款－B」單獨立帳，不與一般應收應付混列。</li>
+            <li><strong>用途留痕：</strong>每筆撥款對應採購單／合約／驗收，避免「資金挪用、用途不符」之認定。</li>
+          </ul>
+        </div>
+        <div class="explain-card gold">
+          <ul>
+            <li><strong>結帳時程固定：</strong>月結 5～10 日內完成暫結，確保隨時可應銀行索取。</li>
+            <li><strong>三表一致性：</strong>暫結、401、營所稅交叉勾稽，差異須能合理說明（時點差、調整分錄）。</li>
+            <li><strong>利息實收入帳：</strong>關係人借貸之 §24-3 利息實際收取、開立收據，於 401／營所稅同步列報。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 05 BANK RELATIONSHIP & RECALL RISK ───────── -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <span class="section-title">銀行往來與抽銀根風險</span>
+      <span class="section-en">Banking Relationship &amp; Loan-Recall Risk</span>
+    </div>
+
+    <p class="section-intro">
+      銀行借款不是「撥款即結束」，而是一段持續的徵信關係。銀行有權於借款期間定期覆審（覆審報表、財報、票信、聯徵），一旦發現異常，輕則調降額度、要求補擔保，重則<strong class="hl">主張加速到期、抽回授信（抽銀根）</strong>。對採取集團內調度的架構而言，最大地雷是「借款用途與實際資金流向不符」。
+    </p>
+
+    <div class="diagram-wrap light-bg">
+      <svg class="flow-svg" viewBox="0 0 1100 340" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="m-red-5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a93232"/></marker>
+        </defs>
+        <!-- timeline -->
+        <line x1="100" y1="170" x2="1000" y2="170" stroke="#000e2f" stroke-width="2"/>
+        <!-- nodes -->
+        <g font-family="Noto Serif TC">
+          <circle cx="180" cy="170" r="7" fill="#f4b702"/>
+          <text x="180" y="140" text-anchor="middle" font-size="13" font-weight="600" fill="#000e2f">撥款</text>
+          <text x="180" y="205" text-anchor="middle" font-size="11" fill="#4d566e">用途承諾</text>
+
+          <circle cx="400" cy="170" r="7" fill="#000e2f"/>
+          <text x="400" y="140" text-anchor="middle" font-size="13" font-weight="600" fill="#000e2f">定期覆審</text>
+          <text x="400" y="205" text-anchor="middle" font-size="11" fill="#4d566e">調閱暫結／401／財報</text>
+
+          <circle cx="620" cy="170" r="7" fill="#000e2f"/>
+          <text x="620" y="140" text-anchor="middle" font-size="13" font-weight="600" fill="#000e2f">發現異常</text>
+          <text x="620" y="205" text-anchor="middle" font-size="11" fill="#a93232">資金流向關係人 · 用途不符</text>
+
+          <circle cx="840" cy="170" r="8" fill="#a93232"/>
+          <text x="840" y="140" text-anchor="middle" font-size="13" font-weight="600" fill="#a93232">加速到期</text>
+          <text x="840" y="205" text-anchor="middle" font-size="11" fill="#a93232">抽銀根 · 全額催收</text>
+        </g>
+        <line x1="700" y1="100" x2="820" y2="150" stroke="#a93232" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#m-red-5)"/>
+        <text x="700" y="90" text-anchor="middle" font-family="Noto Serif TC" font-size="12" fill="#a93232" font-weight="600">違反借款契約之資金用途條款</text>
+        <text x="550" y="290" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#4d566e" letter-spacing="1.5">The covenant breach — not the lending itself — is what triggers recall</text>
+      </svg>
+    </div>
+
+    <div class="explain-grid three">
+      <div class="explain-card" style="border-top-color:var(--red)">
+        <h4>風險一 · 抽銀根（加速到期）</h4>
+        <span class="en">Loan Acceleration / Recall</span>
+        <p>授信契約多訂有「資金用途限制」「財務比率維持」「交叉違約」條款。若銀行認定 C 借入後立即移轉關係人、未用於申報之營運用途，得依約<strong class="hl">宣告全部債務視為到期、要求一次清償</strong>，並影響聯徵紀錄與後續所有往來。</p>
+      </div>
+      <div class="explain-card" style="border-top-color:var(--red)">
+        <h4>風險二 · 銀行法吸金紅線</h4>
+        <span class="en">Banking Act §29 / §29-1</span>
+        <p>關係企業間「真實、特定、有借據」之資金融通屬正常往來；但若演變為<strong>向多數人或不特定人收受款項並給付顯不相當報酬</strong>，將觸犯銀行法 §29、§29-1「視為收受存款」，§125 刑責甚重。三主體調度務必<strong class="hl">限於關係企業之間、有真實借貸關係</strong>，切勿對外吸資。</p>
+      </div>
+      <div class="explain-card gold">
+        <h4>風險三 · 不合常規調整</h4>
+        <span class="en">Non-Arm's-Length Adjustment</span>
+        <p>關係人間借貸利率偏低或無償，除 §24-3 設算補稅外，稽徵機關得依<strong>所得稅法 §43-1</strong>就不合營業常規之安排按常規調整；資本稀釋另有 §43-2 規範。利率、條件須貼近市場、留存訂價依據。</p>
+      </div>
+    </div>
+
+    <div class="explain-grid" style="margin-top:24px">
+      <div class="explain-card">
+        <h4>對銀行揭露的拿捏</h4>
+        <span class="en">What to Disclose</span>
+        <p>實務上多數銀行接受關係企業正常資金往來，<strong>關鍵在事前溝通與事後一致</strong>：若架構涉及集團調度，宜於對保／徵信階段誠實說明資金調度模式與還款來源（B、A 之營運現金流），並確保調閱之暫結、401、財報能支持此說法，避免「帳面說一套、金流走一套」。</p>
+      </div>
+      <div class="explain-card gold">
+        <h4>降低抽銀根機率的作法</h4>
+        <span class="en">Mitigation</span>
+        <ul>
+          <li><strong>用途寫具體：</strong>借款用途對應 C 自身真實需求（存貨、設備、週轉），別只寫「營運週轉」這種空泛字眼。</li>
+          <li><strong>還款來源清楚：</strong>讓銀行看到 A／B 對 C 的還款金流穩定回籠。</li>
+          <li><strong>財務比率達標：</strong>維持負債比、流動比於契約門檻之上。</li>
+          <li><strong>主動報表：</strong>定期主動提供，建立信任、減少臨時查核的突襲性。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 06 CONTRACTS ───────── -->
+<section style="background:var(--paper-2)">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <span class="section-title">建議契約配置</span>
+      <span class="section-en">Required Contractual Architecture</span>
+    </div>
+
+    <p class="section-intro">
+      文件化是這套架構唯一的防線。三主體之間的每一段資金與股權關係，都應有對應書面契約支撐，缺一即留下「實質不符形式」的破口。以下三類契約為核心配置，其中借名登記契約專屬於投資公司（A）持股段。
+    </p>
+
+    <div class="law-grid" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="law-card">
+        <div class="law-ref">Contract 01 · Loan</div>
+        <h4>借貸契約（消費借貸）</h4>
+        <p>適用於 <strong>C→A、A→B</strong> 每一段同業往來與短期融通。應載明：</p>
+        <p style="margin-top:10px">借貸金額、期間、<strong>利率（不低於 §24-3 基準利率）</strong>、計息與付息方式、用途、提前清償、違約處理。每筆撥款逐筆對應，並與帳上「同業往來／短期墊款」科目一致。</p>
+      </div>
+      <div class="law-card">
+        <div class="law-ref">Contract 02 · Investment</div>
+        <h4>投資契約（增資／入股）</h4>
+        <p>適用於 <strong>A 投資 B、C</strong> 取得股權之段。應載明：</p>
+        <p style="margin-top:10px">出資金額與方式（現金或以債作股）、取得股數與持股比例、股東權利義務、盈餘分配政策、表決權、退場與優先承購機制。此契約是 A 日後享有<strong class="hl-gold">§42 股利免稅</strong>之權源基礎。</p>
+      </div>
+      <div class="law-card">
+        <div class="law-ref">Contract 03 · Nominee</div>
+        <h4>借名登記契約（投資公司段）</h4>
+        <p>專用於 <strong>A 持股之實質／名義分離</strong>安排。應載明：</p>
+        <p style="margin-top:10px">借名人與出名人、標的股權、<strong>實質所有權歸屬</strong>、表決權行使、孳息與處分權、終止與返還。<span class="hl">提醒：</span>借名登記在我國原則有效，但若用於規避法律強制規定或稅負，恐被認定通謀虛偽或脫法，須有正當目的並審慎評估。</p>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>契約配置要點 · Note</strong>
+      （1）三類契約彼此呼應：借貸契約支撐金流、投資契約支撐股權與 §42、借名登記契約處理 A 持股之名實安排。<br>
+      （2）所有契約金額、日期須與會計帳、銀行金流、稅務申報三方一致，形式與實質不得脫節。<br>
+      （3）借名登記涉及較高法律與稅務爭議風險（稅捐、贈與、遺產、信託實質課稅），務必個案評估正當性與替代方案（如信託、股權信託）。
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 07 §42 DIVIDEND EXEMPTION ───────── -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">07</span>
+      <span class="section-title">投資公司盈餘分配免稅</span>
+      <span class="section-en">§42 Dividend Exemption at the Holding Layer</span>
+    </div>
+
+    <p class="section-intro">
+      架構的長期價值在 A。A 的本質是一家<strong>控股（投資）公司</strong>——它不開發票、不申報營業稅，專責持有 B、C 股權。當 B、C 將盈餘以股利分配予 A 時，依<strong>所得稅法 §42</strong>，A 所獲配之股利或盈餘<strong class="hl-gold">不計入所得額課稅</strong>。這讓集團獲利得以在公司層級累積、再投資，並由 A 調控分配時點，遞延個人股東之最終稅負。
+    </p>
+
+    <div class="diagram-wrap">
+      <svg class="flow-svg" viewBox="0 0 1100 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="m-navy-7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000e2f"/></marker>
+          <marker id="m-gold-7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f4b702"/></marker>
+        </defs>
+
+        <!-- B/C operating -->
+        <rect x="120" y="130" width="240" height="100" fill="#fff" stroke="#000e2f" stroke-width="1.5"/>
+        <text x="240" y="170" text-anchor="middle" font-family="Noto Serif TC" font-size="15" font-weight="600" fill="#000e2f">嵐石 B ／ 嵐可 C</text>
+        <text x="240" y="193" text-anchor="middle" font-family="Noto Serif TC" font-size="12" fill="#4d566e">營運獲利 · 已繳 20% 營所稅</text>
+        <text x="240" y="216" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11.5" fill="#4d566e">Operating Profit (after CIT)</text>
+
+        <!-- A holding -->
+        <rect x="490" y="130" width="240" height="100" fill="#000e2f"/>
+        <text x="610" y="170" text-anchor="middle" font-family="Noto Serif TC" font-size="15" font-weight="600" fill="#f4b702">投資公司 A</text>
+        <text x="610" y="193" text-anchor="middle" font-family="Noto Serif TC" font-size="12" fill="rgba(255,255,255,.85)">獲配股利 §42 不計入</text>
+        <text x="610" y="216" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11.5" fill="#f4b702">Dividend Exempt</text>
+
+        <!-- accumulation -->
+        <rect x="860" y="130" width="200" height="100" fill="#fef4d4" stroke="#f4b702" stroke-width="1"/>
+        <text x="960" y="170" text-anchor="middle" font-family="Noto Serif TC" font-size="14" font-weight="600" fill="#000e2f">公司層級累積</text>
+        <text x="960" y="193" text-anchor="middle" font-family="Noto Serif TC" font-size="11.5" fill="#4d566e">再投資 · 資產配置</text>
+        <text x="960" y="216" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#4d566e">Re-invest</text>
+
+        <!-- arrows -->
+        <line x1="360" y1="180" x2="485" y2="180" stroke="#f4b702" stroke-width="2.5" marker-end="url(#m-gold-7)"/>
+        <text x="422" y="168" text-anchor="middle" font-family="Noto Serif TC" font-size="11.5" fill="#000e2f" font-weight="600">盈餘分配</text>
+        <text x="422" y="200" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="10.5" fill="#4d566e">Dividend</text>
+
+        <line x1="730" y1="180" x2="855" y2="180" stroke="#000e2f" stroke-width="2" marker-end="url(#m-navy-7)"/>
+
+        <text x="610" y="290" text-anchor="middle" font-family="Noto Serif TC" font-size="12" fill="#4d566e">公司層級不重複課稅；個人股東稅負遞延至 A 實際分配予個人時</text>
+        <text x="610" y="60" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="12" fill="#4d566e" letter-spacing="1.5">Avoiding double taxation between domestic companies — Income Tax Act §42</text>
+      </svg>
+    </div>
+
+    <div class="law-grid">
+      <div class="law-card">
+        <div class="law-ref">所得稅法 §42 · Income Tax Act</div>
+        <h4>轉投資收益免稅之要件</h4>
+        <div class="quote">
+          公司、合作社及其他法人之營利事業，因投資於<strong>國內</strong>其他營利事業，所獲配之股利或盈餘，<strong class="hl-gold">不計入所得額課稅</strong>。
+        </div>
+        <p style="margin-top:14px">立法目的在避免同一筆營利所得在公司之間重複課稅。B、C 已就其獲利繳納營所稅，再分配予 A 時即免再計入 A 之所得課稅。</p>
+      </div>
+      <div class="law-card">
+        <div class="law-ref">適用邊界 · Boundaries</div>
+        <h4>三項務必注意的限制</h4>
+        <ul style="margin-top:4px">
+          <li><strong>限國內營利事業：</strong>投資<strong class="hl">海外公司或 KY 股</strong>所獲股利不適用 §42，須併計課稅，漏報將補稅加罰。</li>
+          <li><strong>免稅非永久消失：</strong>盈餘停留在 A 為「遞延」；A 日後分配予個人股東時，個人仍須課綜所稅。</li>
+          <li><strong>未分配盈餘稅：</strong>A 帳上盈餘若未分配，仍可能適用未分配盈餘加徵 5%，須一併規劃分配節奏。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="law-card" style="margin-top:24px;border-left-color:var(--navy)">
+      <div class="law-ref">A 的本質 · What A Really Is</div>
+      <h4>A 不是「多一家公司」，是控股與節稅的中心</h4>
+      <p>市場上說的「投資公司」其實有好幾種：有的是操作台股美股的交易公司、有的是創投，而 A 這類則是<strong>老闆拿來持有自己事業股份的控股公司</strong>（規模再大，就是日月光那種以一家投控公司持有多家子公司的概念）。對嵐石集團而言，A 同時擔三個角色：持有 B、C 股權的<strong>控股載體</strong>、§15 資金調度的<strong>樞紐</strong>，以及股利歸集的<strong>節稅層</strong>。</p>
+      <p style="margin-top:12px">用控股公司持股還有兩個類似「集團」的好處：一是「<strong>損益切得清楚</strong>」，B（建材、設計、國貿）與 C（商務中心）各自獨立結帳，績效一目了然；二是「<strong>股權移轉容易</strong>」，未來若要傳承或讓與，動 A 一層的股份即可，不必每家子公司逐筆辦理。</p>
+    </div>
+
+    <div class="explain-card gold" style="margin-top:24px">
+      <h4>維持 A 反而要記得的限制</h4>
+      <span class="en">The Trade-offs</span>
+      <ul>
+        <li><strong>資金靈活度較低：</strong>公司要先增資才能動用，不像個人隨時進出；長期持有影響不大。</li>
+        <li><strong>公司證券交易要課基本稅：</strong>公司證券交易所得要課 12% 基本稅（持有滿 3 年減半為 6%），適合長抱。</li>
+        <li><strong>國外股利不免稅：</strong>§42 只保國內；美股、日股股利與價差仍要課稅。</li>
+      </ul>
+    </div>
+
+    <div class="explain-grid" style="margin-top:24px">
+      <div class="explain-card gold">
+        <h4>與融資架構的銜接</h4>
+        <span class="en">How It Ties Back to the Financing Chain</span>
+        <p>A 既是 §15 資金調度的樞紐，也是 §42 股利的歸集點。當 B、C 因 A 提供的週轉而成長，其盈餘回流 A 享免稅累積，再由 A 進行資產配置或對 B、C 增資——<strong>融資鏈與股權鏈在 A 形成閉環</strong>，這是整套架構真正的複利引擎。</p>
+      </div>
+      <div class="explain-card">
+        <h4>個人股東總稅負視角</h4>
+        <span class="en">Effective Tax to the Individual</span>
+        <p>透過國內投資公司持股，獲配股利保留在 A 之公司層級總稅負約為公司層級之水準（遞延個人段）；相較直接由個人持股、股利逐年併入高邊際稅率，具明顯的<strong>稅負遞延與再投資</strong>效益。實際數字須依個人級距與分配政策試算。</p>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>幾個要提醒你的重點</strong>
+      （1）§42 僅適用「國內」轉投資；任何海外或 KY 來源股利均不適用，須併計並注意最低稅負（基本所得額）。<br>
+      （2）股利免稅為「不重複課稅」之遞延機制，非最終免稅；個人股東最終分配時仍課綜所稅，須整體規劃分配時點與金額。<br>
+      （3）A 之未分配盈餘有加徵 5% 之問題，應結合再投資、增資、資產配置通盤安排。<br>
+      （4）本節為架構說明，非個案稅務意見；A 持股比例、取得方式與借名安排均影響課稅結果，執行前應逐案覆核。
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FOOTER ───────── -->
+<footer>
+  <div class="container">
+    <div class="footer-line">
+      <div>
+        <div class="footer-logo">STATON</div>
+        <div class="footer-text" style="margin-top:10px">仕坦登企業管理顧問有限公司 · STATON Management Consulting</div>
+      </div>
+      <div class="footer-text" style="text-align:right">
+        Group　投資公司 × 嵐石事業（24615098）× 嵐可共創（82788462）<br>
+        Document　三方融資架構詳述 · 帳務／銀行／契約／§42 完整版
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© STATON CONSULTING · CONFIDENTIAL ADVISORY</span>
+      <span>GROUP FINANCING ARCHITECTURE · DIAGRAM-CENTERED EDITION</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
